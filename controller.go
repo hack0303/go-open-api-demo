@@ -9,6 +9,8 @@ func init_controller(route *gin.Engine) {
 	health(route)
 }
 
+/** 健康检查
+ */
 func health(route *gin.Engine) {
 
 	r.GET("/health", func(c *gin.Context) {
