@@ -4,16 +4,32 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func init_controller(route *gin.Engine) {
+func init_controller() {
 
-	health(route)
+	health()
+
+	callRemote()
 }
 
 /** 健康检查
  */
-func health(route *gin.Engine) {
+func health() {
 
-	r.GET("/health", func(c *gin.Context) {
+	route.GET("/health", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"code":    "200",
+			"message": "pong",
+		})
+	})
+}
+
+/**
+* 测试 请求
+ */
+
+func callRemote() {
+	route.GET("/test", func(c *gin.Context) {
+		requestBaidu()
 		c.JSON(200, gin.H{
 			"code":    "200",
 			"message": "pong",
